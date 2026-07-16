@@ -13,9 +13,6 @@ The expected deliverables of this project include
 
 -   **A brief writeup** that describes the data source, collection, processing, and analysis.
 
-
-
-  
 -   **A brief video summarizing the project and main findings** uploaded to YouTube. 
 
 
