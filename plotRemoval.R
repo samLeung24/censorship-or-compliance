@@ -50,7 +50,8 @@ country_max <- removal_trends %>%
   arrange(country)
 
 ## Plot
-#removal_plot <- 
+
+##n removal_plot <- 
   ggplot(removal_trends, aes(x = date, y = requests)) +
   geom_col(
     aes(y = compliance_scaled), # CHANGED to scale axis
