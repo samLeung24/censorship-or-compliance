@@ -12,6 +12,7 @@ Context on content moderation and platform policies (include analysis on content
 
 
 ## Findings
+Presents overall corporate event **timeline** chart for Twitter/X
 ### 1. Study on Twitter/X's open source content screening algorithms
 Present results on how they are different from YouTube/Meta.
 
