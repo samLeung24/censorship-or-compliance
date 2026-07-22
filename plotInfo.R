@@ -30,7 +30,8 @@ requester_types <- c(
   "Non-governmental"
 )
 
-## Tidying
+# Tidying
+## Government
 government_trends <- government_info %>%
   filter(
     Country %in% countries,
@@ -44,7 +45,7 @@ government_trends <- government_info %>%
     compliance_rate = as.numeric(Combined.compliance.rate)
   )
 
-## Tidying non-government table
+## Non-government
 non_government_trends <- non_government_info %>%
   filter(
     Country %in% countries,
@@ -58,7 +59,7 @@ non_government_trends <- non_government_info %>%
     compliance_rate = as.numeric(Compliance)
   )
 
-## Combine tables
+## Merge tables
 info_trends <- bind_rows(
   government_trends,
   non_government_trends
@@ -96,7 +97,7 @@ info_trends <- info_trends %>%
   ) %>%
   ungroup()
 
-## Preserve facet order for ggh4x scales
+## Scaling
 country_max <- info_trends %>%
   group_by(country) %>%
   summarise(
@@ -105,7 +106,13 @@ country_max <- info_trends %>%
   ) %>%
   arrange(country)
 
-## Plot
+# Plot
+## Params
+requester_colors <- c(
+  "Governmental" = "#B82C2C",
+  "Non-governmental" = "#2C7FB8"
+)
+
 information_plot <-
   ggplot(
     info_trends,
@@ -160,6 +167,8 @@ information_plot <-
       country_max$max_requests
     )
   ) +
+  scale_color_manual(values = requester_colors) +
+  scale_fill_manual(values = requester_colors) +
   labs(
     title = "Information requests reported to Twitter",
     subtitle = paste(
